@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		59923AC21C8CA38A005F34B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AC11C8CA38A005F34B0 /* AppDelegate.swift */; };
 		59923AC41C8CA38A005F34B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AC31C8CA38A005F34B0 /* ViewController.swift */; };
-		59923AC71C8CA38A005F34B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59923AC51C8CA38A005F34B0 /* Main.storyboard */; };
 		59923AC91C8CA38A005F34B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59923AC81C8CA38A005F34B0 /* Assets.xcassets */; };
 		59923ACC1C8CA38A005F34B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59923ACA1C8CA38A005F34B0 /* LaunchScreen.storyboard */; };
 		59923AD41C8CA5A5005F34B0 /* cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AD31C8CA5A5005F34B0 /* cell.swift */; };
@@ -32,6 +31,8 @@
 		59923AF71C8CA80E005F34B0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59923AF61C8CA80E005F34B0 /* CoreGraphics.framework */; };
 		59923AF91C8CA824005F34B0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59923AF81C8CA824005F34B0 /* QuartzCore.framework */; };
 		59923AFB1C8CA84F005F34B0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59923AFA1C8CA84F005F34B0 /* SystemConfiguration.framework */; };
+		59923AFC1C8CAB1B005F34B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59923AC51C8CA38A005F34B0 /* Main.storyboard */; };
+		59923AFE1C8CB8C6005F34B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		59923AF61C8CA80E005F34B0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		59923AF81C8CA824005F34B0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		59923AFA1C8CA84F005F34B0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				59923AC11C8CA38A005F34B0 /* AppDelegate.swift */,
 				59923AC31C8CA38A005F34B0 /* ViewController.swift */,
 				59923AC51C8CA38A005F34B0 /* Main.storyboard */,
+				59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */,
 				59923AC81C8CA38A005F34B0 /* Assets.xcassets */,
 				59923ACA1C8CA38A005F34B0 /* LaunchScreen.storyboard */,
 				59923AD31C8CA5A5005F34B0 /* cell.swift */,
@@ -207,9 +210,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				59923AFC1C8CAB1B005F34B0 /* Main.storyboard in Resources */,
 				59923ACC1C8CA38A005F34B0 /* LaunchScreen.storyboard in Resources */,
 				59923AC91C8CA38A005F34B0 /* Assets.xcassets in Resources */,
-				59923AC71C8CA38A005F34B0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59923AD91C8CA5B5005F34B0 /* PostImageViewController.swift in Sources */,
+				59923AFE1C8CB8C6005F34B0 /* SignUpViewController.swift in Sources */,
 				59923ADA1C8CA5B5005F34B0 /* TableViewController.swift in Sources */,
 				59923AC41C8CA38A005F34B0 /* ViewController.swift in Sources */,
 				59923AD41C8CA5A5005F34B0 /* cell.swift in Sources */,
@@ -385,6 +389,7 @@
 				59923AD21C8CA38A005F34B0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

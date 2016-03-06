@@ -10,6 +10,11 @@ import Parse
 
 class ViewController: UIViewController {
     
+    //esconder la bateria y status en general
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
+    
  /*   var signupActive = true
     
     @IBOutlet var username: UITextField!
