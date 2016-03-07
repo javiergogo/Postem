@@ -15,42 +15,35 @@ class ViewController: UIViewController {
         return true
     }
     
- /*   var signupActive = true
+    
+    var signupActive = true
     
     @IBOutlet var username: UITextField!
     
     @IBOutlet var password: UITextField!
-    
-    @IBOutlet var signupButton: UIButton!
-    
-    @IBOutlet var registeredText: UILabel!
-    
-    @IBOutlet var loginButton: UIButton!
+
     
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
+    //======= DISPLAY ALERT==========//
     //funcion que llamaremos CADA QUE QUERAMOS UTILIZAR UNA ALERTA, SOLO ENVIAMOS UN TITULO Y UN MENSAJE, QUE ESTA FUNCION ESTA ESPERANDO
     func displayAlert(title: String, message: String) {
         
         var alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction((UIAlertAction(title: "OK", style: .Default, handler: { (action) -> Void in
-            
             self.dismissViewControllerAnimated(true, completion: nil)
-            
         })))
-        
         self.presentViewController(alert, animated: true, completion: nil)
     }
+        
     
-    
-    
-    //BOTON PARA REGISTRAR
-    @IBAction func signUp(sender: AnyObject)
-    {
+    //AL PRESIONAR BOTON DE LOGIN
+    @IBAction func logIn(sender: AnyObject) {
+        
         //REVISA QUE EL NOMBRE DE USUARIO Y CONTRASENA NO ESTEN VACIOS
-        if username.text == "" || password.text == "" {
-            
+        if username.text == "" || password.text == ""
+        {
             displayAlert("Error in form", message: "Please enter a username and password")
         }
         else
@@ -68,103 +61,46 @@ class ViewController: UIViewController {
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
             var errorMessage = "Please try again later"
+
+       
             
-            //SI EL BOTON DE REGISTRO FUE ACTIVADO
-            //REGISTRAR LOS VALORES DE LAS CAJAS DE TEXTO EN LA BASE DE DATOS
-            if signupActive == true
-            {
-                var user = PFUser()
-                user.username = username.text
-                user.password = password.text
+            PFUser.logInWithUsernameInBackground(username.text!, password: password.text!, block: { (user, error) -> Void in
+                //DETIENE LA ANIMACION (SPINNER)
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
                 
-                user.signUpInBackgroundWithBlock({ (success, error) -> Void in
-                    //DETENEMOS EL SPINNER (ANIMACION)
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                    
-                    //SI PUDO REGISTRAR EL USUARIO
-                    if error == nil {
-                        // Signup successful
-                        //ENVIA AL SIGUIENTE PANTALLA (SEGUE LOGIN)
-                        self.performSegueWithIdentifier("login", sender: self)
-                    }
-                    else
+                //SI TENEMOS INFORMACION EN USER SIGNIFICA QUE ESTA ADENTRO
+                if user != nil
+                {
+                    //LLAMA A LA SIGUIENTE PANTALLA (LOGIN SEGUE)
+                    //self.performSegueWithIdentifier("login", sender: self)
+                    print ("logged In")
+                }
+                else
+                {
+                    //SI NO HAY DATOS ENVIAR EL ERROR QUE SE ENCONTRO A LA ALERTA
+                    if let errorString = error!.userInfo["error"] as? String
                     {
-                        //SI NO SE PUDO REGISTRAR, ALAMCENA EL ERROR EN ESTA VARIABLE
-                        if let errorString = error!.userInfo["error"] as? String {
-                            
-                            errorMessage = errorString
-                        }
-                        //LLAMAR LA FUNCIONA PARA MOSTRAR ALERTA, Y ENVIAR EL MENSAJE QUE NOS PRODUJO EL ANTERIOR METODO
-                        self.displayAlert("Failed SignUp", message: errorMessage)
-                    }
-                })
-            }
-                
-                
-                //SI NO ESTA ACTIVO EL BOTON DE REGISTRAR, SERA LOGIN
-            else
-            {
-                print (username.text)
-                print (password.text)
-                PFUser.logInWithUsernameInBackground(username.text!, password: password.text!, block: { (user, error) -> Void in
-                    //DETIENE LA ANIMACION (SPINNER)
-                    self.activityIndicator.stopAnimating()
-                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
-                    
-                    //SI TENEMOS INFORMACION EN USER SIGNIFICA QUE ESTA ADENTRO
-                    if user != nil {
-                        // Logged In!
-                        
-                        //LLAMA A LA SIGUIENTE PANTALLA (LOGIN SEGUE)
-                        self.performSegueWithIdentifier("login", sender: self)
-                        
-                    }
-                    else
-                    {
-                        //SI NO HAY DATOS ENVIAR EL ERROR QUE SE ENCONTRO A LA ALERTA
-                        if let errorString = error!.userInfo["error"] as? String {
-                            
-                            errorMessage = errorString
-                        }
-                        
-                        self.displayAlert("Failed Login", message: errorMessage)
+                        errorMessage = errorString
                     }
                     
-                })
-            }
+                    var alert = UIAlertController(title:"We do not have records of your username", message:errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+                    
+                    let signupAction = UIAlertAction(title:"Sign Up", style:UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+    
+                        self.performSegueWithIdentifier("showSignup", sender:self)
+                    }
+                    
+                    alert.addAction(signupAction)
+                    
+                    self.presentViewController(alert, animated: true, completion: nil)
+                }
+            })
         }
-    }
+   }
+
     
-    
-    
-    //AL PRESIONAR BOTON DE LOGIN
-    @IBAction func logIn(sender: AnyObject) {
-        
-        //SI SE QUIERE REGISTRAR
-        if signupActive == true {
-            //CAMBIAR EL TITULO A LOG IN
-            signupButton.setTitle("Log In", forState: UIControlState.Normal)
-            //CAMBIAR LA ETIQUETA A NOT REGISTERED
-            registeredText.text = "Not registered?"
-            
-            loginButton.setTitle("Sign Up", forState: UIControlState.Normal)
-            
-            signupActive = false
-            
-        } else {
-            
-            signupButton.setTitle("Sign Up", forState: UIControlState.Normal)
-            
-            registeredText.text = "Already registered?"
-            
-            loginButton.setTitle("Login", forState: UIControlState.Normal)
-            
-            signupActive = true
-            
-        }
-    }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -200,5 +136,5 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    } */
+    }
 }
