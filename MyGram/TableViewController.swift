@@ -20,6 +20,9 @@ class TableViewController: UITableViewController {
     //variable global para refrescar o actualizar cuando el usuario pucha para abajo
     var refresher: UIRefreshControl!
     
+    
+    
+    
     func refresh()
     {
         var query = PFUser.query()
@@ -85,7 +88,9 @@ class TableViewController: UITableViewController {
 
     }
         
-        
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
             

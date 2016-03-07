@@ -73,8 +73,8 @@ class ViewController: UIViewController {
                 if user != nil
                 {
                     //LLAMA A LA SIGUIENTE PANTALLA (LOGIN SEGUE)
-                    //self.performSegueWithIdentifier("login", sender: self)
-                    print ("logged In")
+                    self.performSegueWithIdentifier("showMain", sender: self)
+                    //print ("logged In")
                 }
                 else
                 {
@@ -127,7 +127,7 @@ class ViewController: UIViewController {
         //EN CASO DE QUE YA ESTE LOGED IN, CADA QUE APAREZCA IRA AL LOGIN SEGUE
         if PFUser.currentUser() != nil {
             
-            //self.performSegueWithIdentifier("login", sender: self)
+            //self.performSegueWithIdentifier("showMain", sender: self)
             
         }
     }

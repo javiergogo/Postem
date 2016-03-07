@@ -104,8 +104,21 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
         
         self.dismissViewControllerAnimated(true, completion: nil)
         
-        imageToPost.image = image
+        imageToPost.image = resizeImage(image, newWidth: 640)
     }
+    
+    func resizeImage(image: UIImage, newWidth: CGFloat) -> UIImage {
+        
+        let scale = newWidth / image.size.width
+        let newHeight = image.size.height * scale
+        UIGraphicsBeginImageContext(CGSizeMake(newWidth, newHeight))
+        image.drawInRect(CGRectMake(0, 0, newWidth, newHeight))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+    
     
     @IBAction func postImage(sender: AnyObject) {
         
@@ -185,13 +198,6 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    @IBAction func logout(sender: AnyObject) {
-        if PFUser.currentUser() != nil
-        {
-            PFUser.logOut()
-        }
-    }
-    
-    
+
+
 }
