@@ -117,18 +117,25 @@ class ViewController: UIViewController {
     
     
     override func viewDidAppear(animated: Bool) {
-        //
+        //            navigationController?.setNavigationBarHidden(true, animated: true)
+
         if let navcontroller = self.navigationController
         {
             navcontroller.navigationBarHidden = true
             self.navigationController?.toolbarHidden = true
         }
         
+        if let navbar = self.tabBarController
+        {
+            self.hidesBottomBarWhenPushed = true
+            self.tabBarController!.tabBar.hidden = true
+
+        }
+        
         //EN CASO DE QUE YA ESTE LOGED IN, CADA QUE APAREZCA IRA AL LOGIN SEGUE
-        if PFUser.currentUser() != nil {
-            
-            //self.performSegueWithIdentifier("showMain", sender: self)
-            
+        if PFUser.currentUser()?.username != nil
+        {
+            self.performSegueWithIdentifier("showMain", sender: self)
         }
     }
     

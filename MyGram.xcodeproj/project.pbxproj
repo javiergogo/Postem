@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D58A0A21C8E2EA20076F47B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58A0A11C8E2EA20076F47B /* ProfileTableViewController.swift */; };
+		5975B40B1C8E8D140096FB4F /* EditProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975B40A1C8E8D140096FB4F /* EditProfilViewController.swift */; };
+		5975B40D1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5975B40C1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg */; };
+		5975B40F1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5975B40E1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg */; };
 		59923AC21C8CA38A005F34B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AC11C8CA38A005F34B0 /* AppDelegate.swift */; };
 		59923AC41C8CA38A005F34B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AC31C8CA38A005F34B0 /* ViewController.swift */; };
 		59923AC91C8CA38A005F34B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 59923AC81C8CA38A005F34B0 /* Assets.xcassets */; };
@@ -36,6 +40,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D58A0A11C8E2EA20076F47B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewController.swift; path = ../ProfileTableViewController.swift; sourceTree = "<group>"; };
+		5975B40A1C8E8D140096FB4F /* EditProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfilViewController.swift; sourceTree = "<group>"; };
+		5975B40C1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AdobeStock_55512892.jpeg; sourceTree = "<group>"; };
+		5975B40E1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AdobeStock_93996598.jpeg; sourceTree = "<group>"; };
 		59923ABE1C8CA38A005F34B0 /* MyGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		59923AC11C8CA38A005F34B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		59923AC31C8CA38A005F34B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +106,8 @@
 			children = (
 				59923AC01C8CA38A005F34B0 /* MyGram */,
 				59923ABF1C8CA38A005F34B0 /* Products */,
+				5975B40C1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg */,
+				5975B40E1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg */,
 				59923ADB1C8CA62D005F34B0 /* parse-library-1-2 */,
 			);
 			sourceTree = "<group>";
@@ -116,6 +126,7 @@
 				59923AC11C8CA38A005F34B0 /* AppDelegate.swift */,
 				59923AC31C8CA38A005F34B0 /* ViewController.swift */,
 				59923AC51C8CA38A005F34B0 /* Main.storyboard */,
+				5975B40A1C8E8D140096FB4F /* EditProfilViewController.swift */,
 				59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */,
 				59923AC81C8CA38A005F34B0 /* Assets.xcassets */,
 				59923ACA1C8CA38A005F34B0 /* LaunchScreen.storyboard */,
@@ -124,6 +135,7 @@
 				59923AD51C8CA5B5005F34B0 /* FeedTableViewController.swift */,
 				59923AD61C8CA5B5005F34B0 /* PostImageViewController.swift */,
 				59923AD71C8CA5B5005F34B0 /* TableViewController.swift */,
+				0D58A0A11C8E2EA20076F47B /* ProfileTableViewController.swift */,
 			);
 			path = MyGram;
 			sourceTree = "<group>";
@@ -212,6 +224,8 @@
 			files = (
 				59923AFC1C8CAB1B005F34B0 /* Main.storyboard in Resources */,
 				59923ACC1C8CA38A005F34B0 /* LaunchScreen.storyboard in Resources */,
+				5975B40D1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg in Resources */,
+				5975B40F1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg in Resources */,
 				59923AC91C8CA38A005F34B0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -225,10 +239,12 @@
 			files = (
 				59923AD91C8CA5B5005F34B0 /* PostImageViewController.swift in Sources */,
 				59923AFE1C8CB8C6005F34B0 /* SignUpViewController.swift in Sources */,
+				5975B40B1C8E8D140096FB4F /* EditProfilViewController.swift in Sources */,
 				59923ADA1C8CA5B5005F34B0 /* TableViewController.swift in Sources */,
 				59923AC41C8CA38A005F34B0 /* ViewController.swift in Sources */,
 				59923AD41C8CA5A5005F34B0 /* cell.swift in Sources */,
 				59923AC21C8CA38A005F34B0 /* AppDelegate.swift in Sources */,
+				0D58A0A21C8E2EA20076F47B /* ProfileTableViewController.swift in Sources */,
 				59923AD81C8CA5B5005F34B0 /* FeedTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
