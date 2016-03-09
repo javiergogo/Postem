@@ -36,6 +36,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // PFFacebookUtils.initializeFacebook()
         // ****************************************************************************
         
+        
+        UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        
+        UINavigationBar.appearance().titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 55.0/255.0, green: 143.0/255.0, blue: 243.0/255.0, alpha: 1)
+        
+        
+        
+        
         PFUser.enableAutomaticUser()
         
         let defaultACL = PFACL();

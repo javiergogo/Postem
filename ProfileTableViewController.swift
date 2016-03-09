@@ -97,8 +97,7 @@ class ProfileTableViewController: UITableViewController {
                     if error == nil
                     {
                         // The find succeeded.
-                        print("Successfully retrieved \(objects!.count) scores.")
-                        // Do something with the found objects
+                        
                         if let objects = objects
                         {
                             for object in objects
@@ -121,22 +120,14 @@ class ProfileTableViewController: UITableViewController {
                                             {
                                                 let image = UIImage(data:imageData)
                                                 cell.imageView?.image = image
-                                                
                                             }
                                         }
                                             else
-                                        {
-                                            print (error)
+                                            {
+                                                print (error)
                                             }
-                                    }
-
-                                    
-                                    
-                                    
-                                    
+                                        }
                                 }
-                                
-                                
                             }
                         }
                     }
@@ -145,52 +136,55 @@ class ProfileTableViewController: UITableViewController {
                         // Log details of the failure
                         print("Error: \(error!) \(error!.userInfo)")
                     }
+                    }
                 }
-                
-                
-                
             }
-            }
-        
-        
         
         }
-            return cell
+        
+        return cell
     }
+    
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         //PREGUNTAMOS SI EL IDENTIFICADOR ES IGUAL A LOGOUTRIDER ENTONCES HAZ ESO (LOGOUT)
-
-        if let nombre = PFUser.currentUser()
+        
+        if segue.identifier == "LoginfromOut"
         {
-            PFUser.logOut()
-            var currentUser = PFUser.currentUser()
+            if let nombre = PFUser.currentUser()
+            {
+                PFUser.logOut()
+                var currentUser = PFUser.currentUser()
+                
+            }
+            else
+            { print ("no recibiendo nada") }
         }
-        else
-        { print ("no recibiendo nada") }
         
         if segue.identifier == "showEditProfile"
         {
-            if let information = segue.destinationViewController as? EditProfilViewController
+            
+            if let information = segue.destinationViewController as? EditProfileViewController
             {
-                information.username = infoProfile[0]
-                information.name = infoProfile[1]
-                information.password = infoProfile[2]
-                information.phone = infoProfile[3]
-                information.email = infoProfile[4]
-                
-                
+                                information.username = infoProfile[0]
+                                information.name = infoProfile[1]
+                                information.password = infoProfile[2]
+                                information.phone = infoProfile[3]
+                                information.email = infoProfile[4]
 
+                
             }
             
             
+           
         }
-                 
+        
     }
-    
-    
-    
 
+    
+    
+    
+    
 }

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D58A0A21C8E2EA20076F47B /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D58A0A11C8E2EA20076F47B /* ProfileTableViewController.swift */; };
-		5975B40B1C8E8D140096FB4F /* EditProfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5975B40A1C8E8D140096FB4F /* EditProfilViewController.swift */; };
+		5956B0B81C8FC8FC0075B79A /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5956B0B71C8FC8FC0075B79A /* EditProfileViewController.swift */; };
 		5975B40D1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5975B40C1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg */; };
 		5975B40F1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 5975B40E1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg */; };
 		59923AC21C8CA38A005F34B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AC11C8CA38A005F34B0 /* AppDelegate.swift */; };
@@ -37,11 +37,12 @@
 		59923AFB1C8CA84F005F34B0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59923AFA1C8CA84F005F34B0 /* SystemConfiguration.framework */; };
 		59923AFC1C8CAB1B005F34B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59923AC51C8CA38A005F34B0 /* Main.storyboard */; };
 		59923AFE1C8CB8C6005F34B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */; };
+		59FA82E01C8F84A600A90D55 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FA82DF1C8F84A600A90D55 /* profile.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0D58A0A11C8E2EA20076F47B /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileTableViewController.swift; path = ../ProfileTableViewController.swift; sourceTree = "<group>"; };
-		5975B40A1C8E8D140096FB4F /* EditProfilViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfilViewController.swift; sourceTree = "<group>"; };
+		5956B0B71C8FC8FC0075B79A /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		5975B40C1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AdobeStock_55512892.jpeg; sourceTree = "<group>"; };
 		5975B40E1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = AdobeStock_93996598.jpeg; sourceTree = "<group>"; };
 		59923ABE1C8CA38A005F34B0 /* MyGram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyGram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +73,7 @@
 		59923AF81C8CA824005F34B0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		59923AFA1C8CA84F005F34B0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		59FA82DF1C8F84A600A90D55 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +108,7 @@
 			children = (
 				59923AC01C8CA38A005F34B0 /* MyGram */,
 				59923ABF1C8CA38A005F34B0 /* Products */,
-				5975B40C1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg */,
-				5975B40E1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg */,
+				59FA82E11C8F84B600A90D55 /* Images */,
 				59923ADB1C8CA62D005F34B0 /* parse-library-1-2 */,
 			);
 			sourceTree = "<group>";
@@ -126,7 +127,7 @@
 				59923AC11C8CA38A005F34B0 /* AppDelegate.swift */,
 				59923AC31C8CA38A005F34B0 /* ViewController.swift */,
 				59923AC51C8CA38A005F34B0 /* Main.storyboard */,
-				5975B40A1C8E8D140096FB4F /* EditProfilViewController.swift */,
+				5956B0B71C8FC8FC0075B79A /* EditProfileViewController.swift */,
 				59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */,
 				59923AC81C8CA38A005F34B0 /* Assets.xcassets */,
 				59923ACA1C8CA38A005F34B0 /* LaunchScreen.storyboard */,
@@ -161,6 +162,16 @@
 				59923AE11C8CA62D005F34B0 /* ParseUI.framework */,
 			);
 			path = "parse-library-1-2";
+			sourceTree = "<group>";
+		};
+		59FA82E11C8F84B600A90D55 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				5975B40C1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg */,
+				5975B40E1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg */,
+				59FA82DF1C8F84A600A90D55 /* profile.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -223,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59923AFC1C8CAB1B005F34B0 /* Main.storyboard in Resources */,
+				59FA82E01C8F84A600A90D55 /* profile.png in Resources */,
 				59923ACC1C8CA38A005F34B0 /* LaunchScreen.storyboard in Resources */,
 				5975B40D1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg in Resources */,
 				5975B40F1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg in Resources */,
@@ -239,13 +251,13 @@
 			files = (
 				59923AD91C8CA5B5005F34B0 /* PostImageViewController.swift in Sources */,
 				59923AFE1C8CB8C6005F34B0 /* SignUpViewController.swift in Sources */,
-				5975B40B1C8E8D140096FB4F /* EditProfilViewController.swift in Sources */,
 				59923ADA1C8CA5B5005F34B0 /* TableViewController.swift in Sources */,
 				59923AC41C8CA38A005F34B0 /* ViewController.swift in Sources */,
 				59923AD41C8CA5A5005F34B0 /* cell.swift in Sources */,
 				59923AC21C8CA38A005F34B0 /* AppDelegate.swift in Sources */,
 				0D58A0A21C8E2EA20076F47B /* ProfileTableViewController.swift in Sources */,
 				59923AD81C8CA5B5005F34B0 /* FeedTableViewController.swift in Sources */,
+				5956B0B81C8FC8FC0075B79A /* EditProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
