@@ -16,9 +16,27 @@ class FeedTableViewController: UITableViewController {
     var imageFiles = [PFFile]()
     var users = [String: String]()
     
+    
+    func cancel() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func done() {
+        //save things
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dont", style: UIBarButtonItemStyle.Plain, target: self, action: "cancel")
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Click", style: UIBarButtonItemStyle.Done, target: self, action: "done")
+        self.title = "News !!"
+        
+        
         
         var query = PFUser.query()
         //SOLICITAR UN CONSULTA PARA BUSCAR UN OBJECTO EL CUAL ES DE TIPO PFUSER

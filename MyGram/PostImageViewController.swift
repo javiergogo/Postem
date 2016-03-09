@@ -158,7 +158,7 @@ class PostImageViewController: UIViewController, UINavigationControllerDelegate,
                 {
                     self.displayAlert("Image Posted", message: "Ya chingaste tu imagen se guardo")
                     
-                    self.imageToPost.image = UIImage(named: "draw-a-human-face-12.jpg")
+                    self.imageToPost.image = UIImage(named: "camera.jpg")
                     
                     self.message.text = ""
                 }

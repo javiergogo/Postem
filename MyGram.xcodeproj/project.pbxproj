@@ -37,6 +37,7 @@
 		59923AFB1C8CA84F005F34B0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59923AFA1C8CA84F005F34B0 /* SystemConfiguration.framework */; };
 		59923AFC1C8CAB1B005F34B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 59923AC51C8CA38A005F34B0 /* Main.storyboard */; };
 		59923AFE1C8CB8C6005F34B0 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */; };
+		599BA8321C90052F00931FC2 /* camera.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 599BA8311C90052F00931FC2 /* camera.jpg */; };
 		59FA82E01C8F84A600A90D55 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 59FA82DF1C8F84A600A90D55 /* profile.png */; };
 /* End PBXBuildFile section */
 
@@ -73,6 +74,7 @@
 		59923AF81C8CA824005F34B0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		59923AFA1C8CA84F005F34B0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		59923AFD1C8CB8C6005F34B0 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		599BA8311C90052F00931FC2 /* camera.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = camera.jpg; sourceTree = "<group>"; };
 		59FA82DF1C8F84A600A90D55 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -167,6 +169,7 @@
 		59FA82E11C8F84B600A90D55 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				599BA8311C90052F00931FC2 /* camera.jpg */,
 				5975B40C1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg */,
 				5975B40E1C8E9F5A0096FB4F /* AdobeStock_93996598.jpeg */,
 				59FA82DF1C8F84A600A90D55 /* profile.png */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				59923AFC1C8CAB1B005F34B0 /* Main.storyboard in Resources */,
+				599BA8321C90052F00931FC2 /* camera.jpg in Resources */,
 				59FA82E01C8F84A600A90D55 /* profile.png in Resources */,
 				59923ACC1C8CA38A005F34B0 /* LaunchScreen.storyboard in Resources */,
 				5975B40D1C8E9EFF0096FB4F /* AdobeStock_55512892.jpeg in Resources */,
