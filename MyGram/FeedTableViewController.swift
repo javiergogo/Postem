@@ -9,10 +9,12 @@
 import UIKit
 import Parse
 
-class FeedTableViewController: UITableViewController {
+class FeedTableViewController: UITableViewController
+{
 
     var messages = [String]()
     var usernames = [String]()
+    var dates = [NSDate]()
     var imageFiles = [PFFile]()
     var users = [String: String]()
     
@@ -32,9 +34,9 @@ class FeedTableViewController: UITableViewController {
         super.viewDidLoad()
         
         
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dont", style: UIBarButtonItemStyle.Plain, target: self, action: "cancel")
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Click", style: UIBarButtonItemStyle.Done, target: self, action: "done")
-        self.title = "News !!"
+        //self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Dont", style: UIBarButtonItemStyle.Plain, target: self, action: "cancel")
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Click", style: UIBarButtonItemStyle.Done, target: self, action: "done")
+        self.title = "Feeds !"
         
         
         
@@ -50,6 +52,7 @@ class FeedTableViewController: UITableViewController {
             self.users.removeAll(keepCapacity: true)
             self.imageFiles.removeAll(keepCapacity: true)
             self.usernames.removeAll(keepCapacity: true)
+            self.dates.removeAll(keepCapacity: true)
             
             //RECORRE TODOS LOS users EL CUAL CONTIENE TODOS LOS OBJECTS
             for object in users
@@ -73,7 +76,6 @@ class FeedTableViewController: UITableViewController {
             {
                 var followedUser = object["following"] as! String
                 
-                
                 var query = PFQuery(className: "Post")
                 
                 query.whereKey("userId", equalTo: followedUser)
@@ -86,6 +88,7 @@ class FeedTableViewController: UITableViewController {
                         {
                             self.messages.append(object["message"] as! String)
                             self.imageFiles.append(object["imageFile"] as! PFFile)
+                            self.dates.append(object.createdAt! as! NSDate)
                             self.usernames.append(self.users[object["userId"] as! String]!)
                             
                             self.tableView.reloadData()
@@ -133,6 +136,16 @@ class FeedTableViewController: UITableViewController {
         
         myCell.message.text = messages[indexPath.row]
         
+        
+        
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.ShortStyle
+        //formatter.timeStyle = .MediumStyle
+        
+        let dateString = formatter.stringFromDate(dates[indexPath.row])
+        
+        myCell.dates.text = String(dateString)
+ 
         return myCell
     }
 }

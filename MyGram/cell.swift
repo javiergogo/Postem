@@ -19,5 +19,6 @@ class cell: UITableViewCell
     
     @IBOutlet var message: UILabel!
 
+    @IBOutlet var dates: UILabel!
     
 }
