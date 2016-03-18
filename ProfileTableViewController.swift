@@ -13,10 +13,23 @@ class ProfileTableViewController: UITableViewController {
     
 
     var infoProfile = [String]()
-    override func viewDidLoad() {
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato", size: 14)!]
+        
+        tableView.allowsSelection = false
+        tableView.userInteractionEnabled = false
 
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        tableView.reloadData()
+    }
+    
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -27,7 +40,7 @@ class ProfileTableViewController: UITableViewController {
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,9 +49,10 @@ class ProfileTableViewController: UITableViewController {
     }
 
     
-    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Section \(section)"
-    }
+    //Title para la section
+//    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        //return "Section \(section)"
+//    }
 
 
     
@@ -53,7 +67,7 @@ class ProfileTableViewController: UITableViewController {
                 if indexPath.row == 0
                 {
                     infoProfile.append(String(PFUser.currentUser()!.username!))
-                    cell.textLabel!.text = infoProfile[indexPath.row]
+                    cell.textLabel!.text = "Username: " + infoProfile[indexPath.row]
                 }
                 if indexPath.row == 1
                 {
@@ -63,7 +77,7 @@ class ProfileTableViewController: UITableViewController {
                 if indexPath.row == 2
                 {
                     infoProfile.append(String(PFUser.currentUser()!["password"]))
-                    cell.textLabel!.text = "Pass: " + infoProfile[indexPath.row]
+                    cell.textLabel!.text = "Password: ********" //+ infoProfile[indexPath.row]
                 }
                 if indexPath.row == 3
                 {

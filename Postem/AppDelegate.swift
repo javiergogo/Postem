@@ -39,16 +39,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIBarButtonItem.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
-        
-        UINavigationBar.appearance().titleTextAttributes =  [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
-        //UINavigationBar.appearance().barTintColor = UIColor(red: 55.0/255.0, green: 143.0/255.0, blue: 243.0/255.0, alpha: 1)
-        UINavigationBar.appearance().barTintColor = UIColor(red: 38/255.0, green: 209/255.0, blue: 202/255.0, alpha: 1)
 
-        
+       
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         
         UIApplication.sharedApplication().statusBarHidden = false
+
+        
+        UINavigationBar.appearance().barTintColor = UIColor(red: 38.0/255.0, green: 209.0/255.0, blue: 202.0/255.0, alpha: 1.0)
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
+
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato", size: 17)!]
+        
         
         PFUser.enableAutomaticUser()
         
