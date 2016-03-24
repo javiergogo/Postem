@@ -28,8 +28,6 @@ class IndividualViewController: UIViewController {
 
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?)
     {
-
-        print (showImage.image)
     
         performSegueWithIdentifier("starsharing", sender: self)
         
@@ -44,16 +42,11 @@ class IndividualViewController: UIViewController {
             if let destination = segue.destinationViewController as? SharingTableViewController
             {
                 let image = self.showImage.image!
-                destination.imagen = UIImageView(image: image)
-                print (destination.imagen)
-                print (self.showImage.image)
+                destination.ima = image
+                //destination.loadMyImage(image)
             }
-            
         }
-        
-        
     }
-    
     
     
     @IBOutlet var showImage: UIImageView!

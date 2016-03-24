@@ -56,6 +56,9 @@ class MyCollectionViewController: UICollectionViewController  {
                 }
             }
         }
+        
+        self.collectionView?.allowsMultipleSelection = false
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,8 +113,6 @@ class MyCollectionViewController: UICollectionViewController  {
         
         let selectedCell = collectionView.cellForItemAtIndexPath(indexPath)
         
-        print (selected[indexPath.row])
-        
         if selected[indexPath.row] == false
         {
             selectedCell!.layer.borderWidth = 3.0
@@ -124,16 +125,13 @@ class MyCollectionViewController: UICollectionViewController  {
                     self.iralOtro()
                 }
             }
-            
-        selected[indexPath.row] = true
+            selected[indexPath.row] = true
         }
         else if selected[indexPath.row] == true
         {
             selectedCell!.layer.borderWidth = 0.0
             selected[indexPath.row] = false
         }
-        
-
         
     }
 

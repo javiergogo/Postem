@@ -13,17 +13,52 @@ class ProfileTableViewController: UITableViewController {
     
 
     var infoProfile = [String]()
+    var imagesGallery = [PFFile]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato", size: 14)!]
+        //UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName: UIFont(name: "Lato", size: 14)!]
         
-        tableView.allowsSelection = false
-        tableView.userInteractionEnabled = false
+        tableView.allowsSelection = true
+        tableView.userInteractionEnabled = true
+        
+        var mygalleryQuery = PFQuery(className: "Post")
+        mygalleryQuery.whereKey("userId", equalTo: (PFUser.currentUser()?.objectId)!)
+        mygalleryQuery.findObjectsInBackgroundWithBlock { (objects, error) -> Void in
+            
+            if let objects = objects
+            {
+                self.imagesGallery.removeAll(keepCapacity: true)
+                
+                for object in objects
+                {
+                    self.imagesGallery.append(object["imageFile"] as! PFFile)
+                    self.tableView.reloadData()
+                }
+            }
+        }
+        
+        
 
     }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        var cell:UITableViewCell = tableView.cellForRowAtIndexPath(indexPath)!
+        
+        if indexPath.row == 6
+        {
+            //chosin, call alert para 3 opciones, 1, camera, upload photo, select it on postem
+            print ("muestra una gallery")
+            
+            performSegueWithIdentifier("showGall", sender: self)
+        }
+    }
+    
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         tableView.reloadData()
@@ -44,25 +79,25 @@ class ProfileTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 6
+        
+        return imagesGallery.count + 6
     }
-
     
-    //Title para la section
+    
+    
+//    //Title para la section
 //    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 //        //return "Section \(section)"
 //    }
-
+    
 
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
-
-        if let name = PFUser.currentUser()?["name"]
+        if indexPath.section == 0
         {
-            if indexPath.section == 0
+            if let name = PFUser.currentUser()?["name"]
             {
                 if indexPath.row == 0
                 {
@@ -89,77 +124,33 @@ class ProfileTableViewController: UITableViewController {
                     infoProfile.append(String(PFUser.currentUser()!["email"]))
                     cell.textLabel!.text = "E-mail: " + infoProfile[indexPath.row]
                 }
-
-            }
-           
-            
-            if indexPath.section == 1
-            {
-                if indexPath.row == 0
+                if indexPath.row == 6
                 {
-                
-                var foundObj = ""
-                var count = 0
-                
-                var query = PFQuery(className:"Post")
-                
-                query.whereKey("userId", equalTo:(PFUser.currentUser()?.objectId)!)
-                query.findObjectsInBackgroundWithBlock
-                    {
-                    (objects: [PFObject]?, error: NSError?) -> Void in
+                    cell.textLabel?.textAlignment = .Center
+                    cell.tintColor = UIColor.lightGrayColor()
+                    cell.backgroundColor = UIColor.darkGrayColor()
+                    cell.textLabel?.textColor = UIColor.whiteColor()
+                    cell.textLabel?.font = UIFont.boldSystemFontOfSize(16.0)
+                    cell.textLabel?.text = "MY GALLERY"
                     
-                    if error == nil
-                    {
-                        // The find succeeded.
-                        
-                        if let objects = objects
-                        {
-                            for object in objects
-                            {
-                                //print(object["message"])
-                                foundObj = object["message"] as! String
-                                count++
-                                
-                                //when is the last object found, get la imagen y ponla en la celda
-                                if count == objects.count
-                                {
-                                    
-                                    let userImageFile = object["imageFile"] as! PFFile
-                                    userImageFile.getDataInBackgroundWithBlock
-                                        {
-                                        (imageData: NSData?, error: NSError?) -> Void in
-                                        if error == nil
-                                        {
-                                            if let imageData = imageData
-                                            {
-                                                let image = UIImage(data:imageData)
-                                                cell.imageView?.image = image
-                                            }
-                                        }
-                                            else
-                                            {
-                                                print (error)
-                                            }
-                                        }
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        // Log details of the failure
-                        print("Error: \(error!) \(error!.userInfo)")
-                    }
-                    }
+//                    var img:UIImage = UIImage()
+//                    
+//                    print (indexPath.row - 6)
+//                    
+//                    imagesGallery[indexPath.row - 6].getDataInBackgroundWithBlock({ (data, error) -> Void in
+//                        
+//                        if let downloadedImage = UIImage(data: data!)
+//                        {
+//                            cell.imageView?.image = downloadedImage
+//                        }
+//                    })
                 }
             }
-        
         }
         
+
         return cell
     }
-    
-    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -179,22 +170,15 @@ class ProfileTableViewController: UITableViewController {
         
         if segue.identifier == "showEditProfile"
         {
-            
             if let information = segue.destinationViewController as? EditProfileViewController
             {
-                                information.username = infoProfile[0]
-                                information.name = infoProfile[1]
-                                information.password = infoProfile[2]
-                                information.phone = infoProfile[3]
-                                information.email = infoProfile[4]
-
-                
+                information.username = infoProfile[0]
+                information.name = infoProfile[1]
+                information.password = infoProfile[2]
+                information.phone = infoProfile[3]
+                information.email = infoProfile[4]
             }
-            
-            
-           
         }
-        
     }
 
     
